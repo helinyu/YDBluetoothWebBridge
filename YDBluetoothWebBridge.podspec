@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = 'YDBluetoothWebBridge'
-  s.version      = '0.1.1'
+  s.version      = '0.1.2'
   s.summary      = '连接蓝牙并且获取数据展示在web上通过html页面，客户端只需要看法html页面'
   s.ios.deployment_target = '7.0'
   s.homepage     = 'https://github.com/helinyu/YDBluetoothWebBridge'
@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
     s.dependency 'YYModel', '~> 1.0.4'
     s.dependency 'MJRefresh', '~> 3.1.12'
     s.dependency 'Reachability', '~> 3.2'
+    s.dependency 'HardwareDatasStorage', '~> 0.0.1'
 
     # s.frameworks = 'ydOpenHardware/framework/*'
 

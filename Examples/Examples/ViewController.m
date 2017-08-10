@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <YDBluetoothWebBridge/YDBridgeWebViewController.h>
 
 @interface ViewController ()
 
@@ -16,13 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [btn setTitle:@"网页测试" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(onTestClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
+    btn.frame = CGRectMake(100, 100, 100, 30);
+    
+}
+
+- (void)onTestClicked {
+    YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
+    vc.urlString = @"S3.html";
+    vc.type = YDWebViewTypeS3; // for test  type
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

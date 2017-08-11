@@ -18,6 +18,8 @@
 
 /* Begin PBXFileReference section */
 		058A8D13D7C1ACB869749B7F /* Pods-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.release.xcconfig"; sourceTree = "<group>"; };
+		410529DD1F3D4F050075EDC2 /* peripheralList.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = peripheralList.html; sourceTree = "<group>"; };
+		410529DE1F3D4F050075EDC2 /* S3.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = S3.html; sourceTree = "<group>"; };
 		4110A5701F3C59A800EBA5F1 /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4110A5741F3C59A800EBA5F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4110A5761F3C59A800EBA5F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +67,8 @@
 		4110A5721F3C59A800EBA5F1 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				410529DD1F3D4F050075EDC2 /* peripheralList.html */,
+				410529DE1F3D4F050075EDC2 /* S3.html */,
 				4110A5761F3C59A800EBA5F1 /* AppDelegate.h */,
 				4110A5771F3C59A800EBA5F1 /* AppDelegate.m */,
 				4110A5791F3C59A800EBA5F1 /* ViewController.h */,

@@ -13,15 +13,11 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "YYModel.h"
 
-#import "YDOpenHardwareManager.h"
-#import "YDOpenHardwareDataProvider.h"
-#import "YDOpenHardwareIntelligentScale.h"
-#import "YDOpenHardwareHeartRate.h"
-#import "YDOpenHardwareSDK.h"
-#import "YDOpenHardwareSDKDefine.h"
-#import "YDOpenHardwarePedometer.h"
-#import "YDOpenHardwareSleep.h"
-#import "YDOpenHardwareUser.h"
+#import <YDOpenHardwareSDK/YDOpenHardwareManager.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareDataProvider.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareIntelligentScale.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareHeartRate.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareSDK.h>
 
 #import "NSData+YDConversion.h"
 
@@ -150,16 +146,14 @@
             return ;
         }
         [wSelf scanPeripheralWithMatchInfo:data];
-
-        [self reloadWithUrl:data[@"toLink"]];
+        [self loadAnotherHTMLWithDatas:data];
         wSelf.btMgr.startScan().scanPeripheralCallback = ^(CBPeripheral *peripheral) {
-//           处理返回来的数据（一般是列表）
             [wSelf onAddToListWithPeripheral:peripheral];
         };
     }];
     
 //    这个方法名也是需要加载的  （这里是触发链接&注册数据库）
-    [_webViewBridge registerHandler:@"onChoicePeripheral" handler:^(id data, WVJBResponseCallback responseCallback) {
+    [_webViewBridge registerHandler:@"onConnectPeripheralClick" handler:^(id data, WVJBResponseCallback responseCallback) {
         if (data) {
             _btMgr.stopScan().connectingPeripheralUuid(data);
             [wSelf.btMgr onConnectCurrentPeripheralOfBluetooth];
@@ -170,6 +164,7 @@
                 }
             };
             _choicePeripheal = _btMgr.currentPeripheral;
+            [self loadAnotherHTMLWithDatas:data];
             [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal.identifier.UUIDString forKey:@"peripheralUUID"];
             [[NSUserDefaults standardUserDefaults] setObject:_choicePeripheal forKey:@"choicePeripheral"];
         }
@@ -178,22 +173,26 @@
 #pragma mark -- 数据存储操作method name  & data (key/value )
 //    智能体称
     [_webViewBridge registerHandler:@"insertIntelligentScale" handler:^(id data, WVJBResponseCallback responseCallback) {
-            [wSelf insertIntelligentScale:data];
+        [wSelf insertIntelligentScale:data];
+        [self loadAnotherHTMLWithDatas:data];
     }];
     
     [_webViewBridge registerHandler:@"selectNewIntelligentScaleByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectNewIntelligentScaleByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectIntelligentScaleByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectIntelligentScaleByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectIntelligentScaleInPageByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectIntelligentScaleInPageByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
@@ -202,21 +201,25 @@
 //    心率
     [_webViewBridge registerHandler:@"insertHeartRate" handler:^(id data, WVJBResponseCallback responseCallback) {
         [wSelf insertHeartRate:data];
+        [self loadAnotherHTMLWithDatas:data];
     }];
     
     [_webViewBridge registerHandler:@"selectNewHeartRateByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectNewHeartRateByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectHeartRateByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectHeartRateByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectHeartRateInPageByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectHeartRateInPageByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
@@ -224,23 +227,26 @@
     
 // 计步
     [_webViewBridge registerHandler:@"insertPedometer" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSLog(@"peri state : %ld",_choicePeripheal.state);
         [wSelf insertPedometer:data];
+        [self loadAnotherHTMLWithDatas:data];
     }];
     
     [_webViewBridge registerHandler:@"selectNewPedometerByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectNewPedometerByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectPedometerByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectPedometerByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectPedometerInPageByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectPedometerInPageByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
@@ -248,16 +254,19 @@
     
 //    睡眠
     [_webViewBridge registerHandler:@"insertSleep" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf insertSleep:data];
     }];
     
     [_webViewBridge registerHandler:@"selectNewSleepByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectNewSleepByInfo:data completion:^(id idObj) {
             !responseCallback?:responseCallback(idObj);
         }];
     }];
     
     [_webViewBridge registerHandler:@"selectSleepByInfo" handler:^(id data, WVJBResponseCallback responseCallback) {
+        [self loadAnotherHTMLWithDatas:data];
         [wSelf selectSleepByInfo:data completion:^(NSDictionary *dic) {
             !responseCallback?:responseCallback(dic);
         }];
@@ -273,6 +282,7 @@
         NSString *hexString = data[@"hexString"];
         NSInteger length = [data[@"length"] integerValue];
         NSData *writeDatas = [NSData convertFromHexString:hexString length:length];
+        [self loadAnotherHTMLWithDatas:data];
         if (wSelf.writeCharacteristic && writeDatas) {
             [wSelf.choicePeripheal writeValue:writeDatas forCharacteristic:_writeCharacteristic type:CBCharacteristicWriteWithResponse];
         }
@@ -306,23 +316,29 @@
 }
 
 - (void)onDeliverToHtmlWithServices:(NSArray<CBService *> *)services {
-    NSMutableDictionary *servicesDic = @{}.mutableCopy;
-    for (NSInteger index =0; index <services.count; index++) {
-        NSString *key = [NSString stringWithFormat:@"index%ld",(long)index];
-        NSString *value = [NSString stringWithFormat:@"%2@",services[index]];
-        if (key && value) {
-            [servicesDic setObject:value forKey:key];
-        }
-    }
-    [_webViewBridge callHandler:@"deliverServices" data:servicesDic responseCallback:^(id responseData) {
-        
+//    test service
+    
+    id jsonObj = [services yy_modelToJSONObject];
+    __weak typeof (self) wSelf = self;
+    [_webViewBridge callHandler:@"onServicesResultBack" data:jsonObj responseCallback:^(id responseData) {
+        [wSelf loadAnotherHTMLWithDatas:responseData];
     }];
+}
+
+
+- (void)loadAnotherHTMLWithDatas:(id)datas {
+    if (![datas isKindOfClass:[NSDictionary class]]) {
+        return;
+    }
+    NSString *toLink = (NSString *)[datas objectForKey:@"toLink"];
+    if (toLink) {
+        [self reloadWithUrl:toLink];
+    }
 }
 
 // plist 文件加载数据格式
 - (void)onDeliverToHtmlWithCharateristic:(CBCharacteristic *)c {
     Byte *resultP = (Byte *)[c.value bytes];
-
     //    数据格式需要进行加载，解析数据格式 （变化），这里应该是怎么读取的，有关的格式
     NSMutableDictionary *characteristicInfo = @{}.mutableCopy;
     [characteristicInfo setObject:c.UUID.UUIDString forKey:@"uuid"];
@@ -335,25 +351,9 @@
         }
     }
     [characteristicInfo setObject:valueInfo forKey:@"value"];
-    
-//    NSString *value0 = [NSString stringWithFormat:@"0x%02X",resultP[0]];
-//    NSString *value1 = [NSString stringWithFormat:@"0x%02X",resultP[1]];
-//    NSString *value2 = [NSString stringWithFormat:@"0x%02X",resultP[2]];
-//    NSString *value3 = [NSString stringWithFormat:@"0x%02X",resultP[3]];
-//    if ((value0 !=nil) && (value1 !=nil) && (value2 !=nil) && (value3 !=nil) && (c.UUID.UUIDString.length >0)) {
-//        NSDictionary *characteristicInfo = @{@"uuid":c.UUID.UUIDString,
-//                                             @"value":@{
-//                                                     @"value0":value0,
-//                                                     @"value1":value1,
-//                                                     @"value2":value2,
-//                                                     @"value3":value3
-//                                                     }
-//                                             };
-//        这个方法可以是写死的
-        [_webViewBridge callHandler:@"deliverCharacteristic" data:characteristicInfo responseCallback:^(id responseData) {
-            NSLog(@"response data : %@",responseData);
-        }];
-//     }
+    [_webViewBridge callHandler:@"onCharacteristicResultBack" data:characteristicInfo responseCallback:^(id responseData) {
+        NSLog(@"response data : %@",responseData);
+    }];
 }
 
 #pragma mark --xx handler with html
@@ -361,7 +361,10 @@
 - (void)onAddToListWithPeripheral:(CBPeripheral *)peripheral {
     if (peripheral.name && peripheral.identifier) {
 //        NSDictionary *peripheralInfo = @{@"name":peripheral.name,@"uuid":peripheral.identifier.UUIDString};
-        [_webViewBridge callHandler:@"insertPeripheralInHtml" data:[peripheral yy_modelToJSONObject] responseCallback:^(id responseData) {
+        NSMutableDictionary *peripherlInfo = @{}.mutableCopy;
+        peripherlInfo = [peripheral yy_modelToJSONObject];
+        [peripherlInfo setObject:peripheral.identifier.UUIDString forKey:@"uuid"];
+        [_webViewBridge callHandler:@"scanResultSingleBack" data:peripherlInfo responseCallback:^(id responseData) {
             NSLog(@"response datas from html : %@",responseData);
         }];
     }
@@ -391,7 +394,7 @@
 
 - (void)registerOpenHardWareWithPeripheral:(CBPeripheral *)peripheral {
     //   蓝牙连接成功了之后，就会注册数据库
-    //是否注册0x    _deviceId = peripheral.identifier.UUIDString;
+    _deviceId = peripheral.identifier.UUIDString;
     _plugName = peripheral.name;
     _userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
     __weak typeof (self) wSelf = self;
@@ -427,27 +430,28 @@
 }
 
 - (void)onDidUpdateCharacteristicValueNotify:(NSNotification *)notificaiton {
-    [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-        
-    }];
+//    [_webViewBridge callHandler:@"onDidUpdateCharacteristicValueNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+//
+//    }];
 }
 
 - (void)onDidUpdateNotificaitonStateForCharacteristicNotify:(NSNotification *)notification {
-    [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotif" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-        
-    }];
+//    NSDictionary *objInfo = [notification.object yy_modelToJSONObject];
+//    [_webViewBridge callHandler:@"onNotificaitonStateForCharacteristicNotif" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+//
+//    }];
 }
 
 - (void)onDiscoverDescriptorsForCharacteristicNotify:(NSNotification *)notification {
-    [_webViewBridge callHandler:@"onDiscoverDescriptorsForCharacteristicNotify" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-        
-    }];
+//    [_webViewBridge callHandler:@"onDiscoverDescriptorsForCharacteristicNotify" data:[notification.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+//
+//    }];
 }
 
 - (void)onReadValueForDescriptorsNotify:(NSNotification *)notificaiton {
-    [_webViewBridge callHandler:@"onReadValueForDescriptorsNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
-        
-    }];
+//    [_webViewBridge callHandler:@"onReadValueForDescriptorsNotify" data:[notificaiton.object yy_modelToJSONObject] responseCallback:^(id responseData) {
+//
+//    }];
 }
 
 #pragma mark 体重秤
@@ -563,15 +567,21 @@
     if (!infoDic || ![infoDic isKindOfClass:[NSDictionary class]]) {
         return;
     }
-//    test datas must deliver from the html
-    YDOpenHardwarePedometer *pedometer = [YDOpenHardwarePedometer yy_modelWithDictionary:infoDic];
-    pedometer.deviceId = _deviceIdentify;
-    pedometer.userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
-    pedometer.startTime = pedometer.endTime = [NSDate date];
-    pedometer.startTime?(pedometer.startTime = [NSDate date]):nil;
-    pedometer.endTime?(pedometer.endTime = [NSDate date]):nil;
+    //    test datas must deliver from the html :note some params(datas must not be nil)
+    YDOpenHardwarePedometer *pe = [YDOpenHardwarePedometer yy_modelWithDictionary:infoDic];
+    pe.deviceId = _deviceIdentify;
+    pe.userId = [[YDOpenHardwareManager sharedManager] getCurrentUser].userID;
+    !pe.startTime?(pe.startTime = [NSDate date]):nil;
+    !pe.endTime?(pe.endTime = [NSDate date]):nil;
+    !pe.extra?(pe.extra = @""):nil;
+    !pe.distance?(pe.distance = @0):nil;
+    !pe.calorie?(pe.calorie =@0):nil;
+    !pe.extra?(pe.extra = @""):nil;
+    !pe.serverId?(pe.serverId = @0):nil;
+    !pe.status?(pe.status = @0):nil;
+    !pe.numberOfStep?(pe.numberOfStep = @0):nil;
 
-    [[YDOpenHardwareManager dataProvider] insertPedometer:pedometer completion:^(BOOL success) {
+    [[YDOpenHardwareManager dataProvider] insertPedometer:pe completion:^(BOOL success) {
         if (success) {
             NSLog(@"插入成功");
         }

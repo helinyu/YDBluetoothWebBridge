@@ -13,15 +13,23 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "YYModel.h"
 
-#import "YDOpenHardwareManager.h"
-#import "YDOpenHardwareDataProvider.h"
-#import "YDOpenHardwareIntelligentScale.h"
-#import "YDOpenHardwareHeartRate.h"
-#import "YDOpenHardwareSDK.h"
-#import "YDOpenHardwareSleep.h"
-#import "YDOpenHardwareUser.h"
-#import "YDOpenHardwareSDK.h"
-#import "YDOpenHardwarePedometer.h"
+//#import "YDOpenHardwareManager.h"
+//#import "YDOpenHardwareDataProvider.h"
+//#import "YDOpenHardwareIntelligentScale.h"
+//#import "YDOpenHardwareHeartRate.h"
+//#import "YDOpenHardwareSDK.h"
+//#import "YDOpenHardwareSleep.h"
+//#import "YDOpenHardwareUser.h"
+//#import "YDOpenHardwareSDK.h"
+//#import "YDOpenHardwarePedometer.h"
+#import <YDOpenHardwareSDK/YDOpenHardwareManager.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareDataProvider.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareSDKDefine.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareHeartRate.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareIntelligentScale.h>
+#import <YDOpenHardwareSDK/YDOpenHardwarePedometer.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareSleep.h>
+#import <YDOpenHardwareSDK/YDOpenHardwareUser.h>
 
 #import "NSData+YDConversion.h"
 

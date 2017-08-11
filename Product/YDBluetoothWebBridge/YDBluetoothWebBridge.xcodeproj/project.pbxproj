@@ -113,7 +113,7 @@
 		4110A6C31F3DD5A400EBA5F1 /* YDBridgeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A6A81F3DD5A400EBA5F1 /* YDBridgeWebView.m */; };
 		4110A6C41F3DD5A400EBA5F1 /* YDBridgeWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A6A91F3DD5A400EBA5F1 /* YDBridgeWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4110A6C51F3DD5A400EBA5F1 /* YDBridgeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A6AA1F3DD5A400EBA5F1 /* YDBridgeWebViewController.m */; };
-		4110A6C61F3DD5A400EBA5F1 /* YDDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A6AB1F3DD5A400EBA5F1 /* YDDefine.h */; };
+		4110A6C61F3DD5A400EBA5F1 /* YDDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A6AB1F3DD5A400EBA5F1 /* YDDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4110A6C71F3DD5A400EBA5F1 /* YDMBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A6AC1F3DD5A400EBA5F1 /* YDMBaseViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4110A6C81F3DD5A400EBA5F1 /* YDMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4110A6AD1F3DD5A400EBA5F1 /* YDMBaseViewController.m */; };
 		4110A6C91F3DD5A400EBA5F1 /* YDWebNoNetworkView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A6AE1F3DD5A400EBA5F1 /* YDWebNoNetworkView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -580,6 +580,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4110A6C61F3DD5A400EBA5F1 /* YDDefine.h in Headers */,
 				4110A6C91F3DD5A400EBA5F1 /* YDWebNoNetworkView.h in Headers */,
 				4110A6B41F3DD5A400EBA5F1 /* NSData+YDConversion.h in Headers */,
 				4110A6C01F3DD5A400EBA5F1 /* YDBridgeWebMgr.h in Headers */,
@@ -600,7 +601,6 @@
 				4110A5101F3C2F9300EBA5F1 /* SVProgressHUD.h in Headers */,
 				4110A5631F3C4D0A00EBA5F1 /* YDOpenHardwareSleep.h in Headers */,
 				4110A52C1F3C2F9C00EBA5F1 /* NSObject+YYModel.h in Headers */,
-				4110A6C61F3DD5A400EBA5F1 /* YDDefine.h in Headers */,
 				4110A4231F3C2F6200EBA5F1 /* BabyDefine.h in Headers */,
 				4110A55C1F3C4D0A00EBA5F1 /* YDOpenHardwareDataProvider.h in Headers */,
 				4110A4541F3C2F6C00EBA5F1 /* MASViewAttribute.h in Headers */,

@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = 'YDBluetoothWebBridge'
-  s.version      = '0.2.1'
+  s.version      = '0.2.2'
   s.summary      = '连接蓝牙并且获取数据展示在web上通过html页面，客户端只需要看法html页面'
   s.ios.deployment_target = '7.0'
   s.homepage     = 'https://github.com/helinyu/YDBluetoothWebBridge'

@@ -97,7 +97,7 @@
 		414B73C11F667656001FEEE0 /* YDRegisterInteractiveHtmlMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = 414B73881F667656001FEEE0 /* YDRegisterInteractiveHtmlMethods.plist */; };
 		414B73C21F667656001FEEE0 /* CBService+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 414B738C1F667656001FEEE0 /* CBService+YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		414B73C31F667656001FEEE0 /* CBService+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 414B738D1F667656001FEEE0 /* CBService+YYModel.m */; };
-		414B73C41F667656001FEEE0 /* NSData+YDConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 414B738E1F667656001FEEE0 /* NSData+YDConversion.h */; };
+		414B73C41F667656001FEEE0 /* NSData+YDConversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 414B738E1F667656001FEEE0 /* NSData+YDConversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		414B73C51F667656001FEEE0 /* NSData+YDConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 414B738F1F667656001FEEE0 /* NSData+YDConversion.m */; };
 		414B73C61F667656001FEEE0 /* NSString+YDContainsString.h in Headers */ = {isa = PBXBuildFile; fileRef = 414B73901F667656001FEEE0 /* NSString+YDContainsString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		414B73C71F667656001FEEE0 /* NSString+YDContainsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 414B73911F667656001FEEE0 /* NSString+YDContainsString.m */; };
@@ -696,6 +696,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				414B73C41F667656001FEEE0 /* NSData+YDConversion.h in Headers */,
 				4110A4271F3C2F6200EBA5F1 /* BabyPeripheralManager.h in Headers */,
 				414B73D01F667656001FEEE0 /* YDBluetoothWebViewMgr+Time.h in Headers */,
 				414B73D41F667656001FEEE0 /* CWStatusBarNotification.h in Headers */,
@@ -722,7 +723,6 @@
 				414B73CE1F667656001FEEE0 /* YDBluetoothWebViewMgr+Tel.h in Headers */,
 				414B73C21F667656001FEEE0 /* CBService+YYModel.h in Headers */,
 				414B73DA1F667656001FEEE0 /* YDConstants.h in Headers */,
-				414B73C41F667656001FEEE0 /* NSData+YDConversion.h in Headers */,
 				4110A4211F3C2F6200EBA5F1 /* BabyCentralManager.h in Headers */,
 				4110A4251F3C2F6200EBA5F1 /* BabyOptions.h in Headers */,
 				4110A5101F3C2F9300EBA5F1 /* SVProgressHUD.h in Headers */,

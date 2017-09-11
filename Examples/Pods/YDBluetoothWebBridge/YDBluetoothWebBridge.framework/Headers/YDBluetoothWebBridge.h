@@ -26,6 +26,8 @@ FOUNDATION_EXPORT const unsigned char YDBluetoothWebBridgeVersionString[];
 #import <YDBluetoothWebBridge/YDBridgeWebMgr.h>
 #import <YDBluetoothWebBridge/YDBridgeWebView.h>
 #import <YDBluetoothWebBridge/YDBridgeWebViewController.h>
-#import <YDBluetoothWebBridge/YDDefine.h>
+#import <YDBluetoothWebBridge/YDBluetoohWebDefine.h>
 #import <YDBluetoothWebBridge/YDMBaseViewController.h>
 #import <YDBluetoothWebBridge/YDWebNoNetworkView.h>
+#import <YDBluetoothWebBridge/YDConstants.h>
+

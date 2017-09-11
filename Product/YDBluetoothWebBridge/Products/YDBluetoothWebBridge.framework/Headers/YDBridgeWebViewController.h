@@ -7,7 +7,7 @@
 //
 
 #import "YDMBaseViewController.h"
-#import "YDDefine.h"
+#import "YDBluetoohWebDefine.h"
 #import <UIKit/UIKit.h>
 
 @class YDBridgeWebView;
@@ -21,6 +21,9 @@
 @property (nonatomic, assign) YDWebViewType type;
 @property (nonatomic, weak, readwrite) YDBridgeWebView *webView;
 @property (nonatomic, assign) CGFloat topEdge;
+
+// to custom the type wiht integer type
+@property (nonatomic, assign) NSUInteger bluetoothBusinessType;
 
 + (instancetype)instanceWithType:(YDWebViewType)type urlString:(NSString *)urlString;
 - (instancetype)initWithUrl:(NSString *)urlString andType:(YDWebViewType)type;

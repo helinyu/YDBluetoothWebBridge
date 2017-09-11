@@ -8,35 +8,34 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class CBPeripheral;
-@class CBService;
-@class CBCharacteristic;
+#import <CoreBluetooth/CoreBluetooth.h>
+#import "YDBluetoohWebDefine.h"
+@class CTCallCenter;
 
-typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
-    YDBlueToothFilterTypeNone = 0,
-    YDBlueToothFilterTypeMatch,  // match to filter and find the specify device
-    YDBlueToothFilterTypeContain,    // contain the keyword to filter and find the specify device
-    YDBlueToothFilterTypePrefix,     // key word by the prefix
-    YDBlueToothFilterTypeSuffix,     // key word by the suffix
-    YDBlueToothFilterTypePrefixAndSuffix, // key word by the prefix & suffix
-    YDBlueToothFilterTypePrefixAndContain, // key word by the prefix & contain
-    YDBlueToothFilterTypeSuffixAndContrain, // key word by the suffix & contain
-    YDBlueToothFilterTypePrefixAndContrainAndSuffix, //key word by the prefix & contrain * suffix
-};
+@class YDPeripheralInfo;
+
 
 @interface YDBlueToothMgr : NSObject
 
 + (instancetype)shared;
 
+//tel phone call (tel catefory)
+@property (nonatomic, copy) void(^callHandle)(BOOL handerFlag);
+
+//tel phone
+@property (nonatomic, strong) CTCallCenter *callCenter;
+
 //- (void)startScan;
 - (YDBlueToothMgr *(^)(void))startScan;
 - (YDBlueToothMgr *(^)(void))stopScan;
+//- (BOOL)isScanning;
 
 /*
  *@metod quit the connection abount the central with the peripheral
  *@discussion may be like that ,the VC dealloc, we may be need to quit the connected
  */
 - (YDBlueToothMgr *(^)(void))quitConnected;
+- (YDBlueToothMgr *(^)(CBPeripheral *peripheral))quitConnectedPeripheal;
 
 /*
  * @param :blue tooth search & filter key word and  pattern, required
@@ -64,8 +63,10 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
  * @parmam : connectedPeripheral (recommended)
  * discussion : 传入参数有两种方式，一种方式是同步block的方式，实现链式调用传入，另外一个种是直接传入
  */
-- (YDBlueToothMgr * (^)(CBPeripheral *peripheral))connectedPeripheral;
-- (YDBlueToothMgr *(^)(NSString *uuidString))connectingPeripheralUuid;
+- (YDBlueToothMgr * (^)(CBPeripheral *peripheral))connectingPeripheral;
+- (YDBlueToothMgr *(^)(NSString *uuidString))willBeConnetPeiripheralByUUID;
+- (YDBlueToothMgr *(^)(CBPeripheral *peripheral))willBeConnetPeiripheral;
+
 /*
  * @param  currentIndex depend on the outside logic ,which help to choose the current peripheral
  * @block connectingPeripheralIndex which help to Chain programming by deliver the currentIndex
@@ -85,6 +86,15 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
 @property (nonatomic, copy) void(^scanCallBack)(NSArray<CBPeripheral *> *peripherals);
 @property (nonatomic, copy) void(^scanPeripheralCallback)(CBPeripheral *peripheral);
 
+/*
+ * @param : info contain more info abount peripheral
+ * @attribute : CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI
+ * @see : setBlockOnDiscoverToPeripherals methods the result block back
+ */
+@property (nonatomic, copy) void(^scanPeripheralInfosCallBack)(NSArray<YDPeripheralInfo *> * peripherals);
+@property (nonatomic, copy) void(^scanPeripheralInfoCallback)(YDPeripheralInfo *peripheralInfo);
+
+
 //connect
 /*
  *@param : index was deliver by the outside which help to choose the peripheral
@@ -93,7 +103,8 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
  */
 - (void)onConnectBluetoothWithIndex:(NSInteger)index;
 - (void)onConnectBluetoothWithPeripheral:(CBPeripheral *)peripheral;// (recommended)
-- (void)onConnectCurrentPeripheralOfBluetooth;
+- (YDBlueToothMgr *(^)(void))connectingCurrentPeripheral;
+
 
 /*
  *@param : which callback by the success to diagnosis is connecting success or not
@@ -115,11 +126,18 @@ typedef NS_ENUM(NSInteger, YDBlueToothFilterType) {
 @property (nonatomic, copy) void(^heartRateCallBack)(NSString *heartString);
 @property (nonatomic, copy) void(^tripCallBack)(CGFloat calories, CGFloat distance);
 
-@property (nonatomic, copy) void(^characteristicCallBack)(CBCharacteristic *c);
-
+//@property (nonatomic, copy) void(^characteristicCallBack)(CBCharacteristic *c);
+typedef void (^CharacteristicCallback)(CBCharacteristic *c);
+@property (nonatomic, copy) CharacteristicCallback discoverCharacteristicCallback;
+@property (nonatomic, copy) CharacteristicCallback updateValueCharacteristicCallBack;
 
 - (void)writeDatas:(NSData *)datas forCharacteristic:(CBCharacteristic *)characteristic; // write datas for the specify characteristic
 
+//obtain the cbperipheal by the uuid which is specified
+//@property (nonnull, copy) void(^ObtainPeirpheal)(NSString *uuid);
+- (CBPeripheral *)obtainPeripheralWithUUIDString:(NSString *)uuidString;
+
+- (void)setNotifyWithPeripheral:(CBPeripheral *)peripheral characteristic:(CBCharacteristic *)characteristic block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block;
 
 @end
 

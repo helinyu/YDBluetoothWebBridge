@@ -24,7 +24,6 @@
     [btn addTarget:self action:@selector(toThirdPartVC:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     btn.frame = CGRectMake(100, 100, 100, 30);
-
 }
 
 - (void)toThirdPartVC:(id)sender {

@@ -87,12 +87,12 @@
         });
 
 // 上面这两个方法使用一个的方法就好，一个是有services 一个是service 只是返回链接是否成功onConnectPeripheralResultBack
-        bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
-            // log('services count : '+data.length);
-            var uuidString = data.uuid;
-            log('servies :' + JSON.stringify(data) + ' ; ' + 'uuidString :' +uuidString);
-                // var toLink = "YDPeripheralDetail.html";
-                // responseCallback({'toLink':toLink});            
+    bridge.registerHandler('onServicesResultBack',function(data,responseCallback) {
+        // log('services count : '+data.length);
+        var uuidString = data.uuid;
+        log('servies :' + JSON.stringify(data) + ' ; ' + 'uuidString :' +uuidString);
+            // var toLink = "YDPeripheralDetail.html";
+            // responseCallback({'toLink':toLink});
          }); 
 
         bridge.registerHandler('settingWriteCharacteristic',function(data, responseCallback) {
@@ -201,7 +201,6 @@
             if(e){//不是ie
 		        e.preventDefault();
                 var eId = e.target.id;
-
                 if (eId == "scanBtnId") {
                 	log('开始扫描');
 	             	var scanParams = {'YDBlueToothFilterType':3,'prefixField':'RUN'};
@@ -221,7 +220,6 @@
                  log(idValue + 'idValue');
             }
         };
- 
      });
 
     </script>

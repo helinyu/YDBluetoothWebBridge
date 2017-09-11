@@ -26,7 +26,7 @@
 		4110A41D1F3C2F6200EBA5F1 /* BabyBluetooth.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A40B1F3C2F6200EBA5F1 /* BabyBluetooth.h */; };
 		4110A41F1F3C2F6200EBA5F1 /* BabyCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A40D1F3C2F6200EBA5F1 /* BabyCallback.h */; };
 		4110A4211F3C2F6200EBA5F1 /* BabyCentralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A40F1F3C2F6200EBA5F1 /* BabyCentralManager.h */; };
-		4110A4231F3C2F6200EBA5F1 /* BabyDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4111F3C2F6200EBA5F1 /* BabyDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4110A4231F3C2F6200EBA5F1 /* BabyDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4111F3C2F6200EBA5F1 /* BabyDefine.h */; };
 		4110A4251F3C2F6200EBA5F1 /* BabyOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4131F3C2F6200EBA5F1 /* BabyOptions.h */; };
 		4110A4271F3C2F6200EBA5F1 /* BabyPeripheralManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4151F3C2F6200EBA5F1 /* BabyPeripheralManager.h */; };
 		4110A4291F3C2F6200EBA5F1 /* BabyRhythm.h in Headers */ = {isa = PBXBuildFile; fileRef = 4110A4171F3C2F6200EBA5F1 /* BabyRhythm.h */; };
@@ -131,7 +131,6 @@
 		414B73E31F667656001FEEE0 /* YDBluetoothWebViewMgr+ReadDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 414B73B11F667656001FEEE0 /* YDBluetoothWebViewMgr+ReadDatas.m */; };
 		414B73E41F667656001FEEE0 /* YDBluetoothWebViewMgr+WriteDatas.h in Headers */ = {isa = PBXBuildFile; fileRef = 414B73B21F667656001FEEE0 /* YDBluetoothWebViewMgr+WriteDatas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		414B73E51F667656001FEEE0 /* YDBluetoothWebViewMgr+WriteDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 414B73B31F667656001FEEE0 /* YDBluetoothWebViewMgr+WriteDatas.m */; };
-		414B73E61F667656001FEEE0 /* YDS3WebViewMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 414B73B51F667656001FEEE0 /* YDS3WebViewMgr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,7 +312,6 @@
 		414B73B11F667656001FEEE0 /* YDBluetoothWebViewMgr+ReadDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+ReadDatas.m"; sourceTree = "<group>"; };
 		414B73B21F667656001FEEE0 /* YDBluetoothWebViewMgr+WriteDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YDBluetoothWebViewMgr+WriteDatas.h"; sourceTree = "<group>"; };
 		414B73B31F667656001FEEE0 /* YDBluetoothWebViewMgr+WriteDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YDBluetoothWebViewMgr+WriteDatas.m"; sourceTree = "<group>"; };
-		414B73B51F667656001FEEE0 /* YDS3WebViewMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YDS3WebViewMgr.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,7 +568,6 @@
 				414B73891F667656001FEEE0 /* Category */,
 				414B73A01F667656001FEEE0 /* Helper */,
 				414B73AB1F667656001FEEE0 /* HelpTestEnvironment */,
-				414B73B41F667656001FEEE0 /* WebView */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -681,14 +678,6 @@
 			path = HelpTestEnvironment;
 			sourceTree = "<group>";
 		};
-		414B73B41F667656001FEEE0 /* WebView */ = {
-			isa = PBXGroup;
-			children = (
-				414B73B51F667656001FEEE0 /* YDS3WebViewMgr.h */,
-			);
-			path = WebView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -711,7 +700,6 @@
 				414B73C61F667656001FEEE0 /* NSString+YDContainsString.h in Headers */,
 				414B73BA1F667656001FEEE0 /* YDBluetoohWebDefine.h in Headers */,
 				414B73E41F667656001FEEE0 /* YDBluetoothWebViewMgr+WriteDatas.h in Headers */,
-				414B73E61F667656001FEEE0 /* YDS3WebViewMgr.h in Headers */,
 				414B73DE1F667656001FEEE0 /* YDBluetoothWebViewMgr+Extension.h in Headers */,
 				414B73CC1F667656001FEEE0 /* YDBluetoothWebViewMgr+DB.h in Headers */,
 				414B73BF1F667656001FEEE0 /* YDWebNoNetworkView.h in Headers */,
@@ -719,10 +707,10 @@
 				414B73BB1F667656001FEEE0 /* YDBridgeWebViewController.h in Headers */,
 				414B73D21F667656001FEEE0 /* YDBluetoothWebViewMgr+YDAudioVideo.h in Headers */,
 				414B73E21F667656001FEEE0 /* YDBluetoothWebViewMgr+ReadDatas.h in Headers */,
-				4110A4231F3C2F6200EBA5F1 /* BabyDefine.h in Headers */,
 				414B73CE1F667656001FEEE0 /* YDBluetoothWebViewMgr+Tel.h in Headers */,
 				414B73C21F667656001FEEE0 /* CBService+YYModel.h in Headers */,
 				414B73DA1F667656001FEEE0 /* YDConstants.h in Headers */,
+				4110A4231F3C2F6200EBA5F1 /* BabyDefine.h in Headers */,
 				4110A4211F3C2F6200EBA5F1 /* BabyCentralManager.h in Headers */,
 				4110A4251F3C2F6200EBA5F1 /* BabyOptions.h in Headers */,
 				4110A5101F3C2F9300EBA5F1 /* SVProgressHUD.h in Headers */,

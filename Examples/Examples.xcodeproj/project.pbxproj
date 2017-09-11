@@ -18,8 +18,6 @@
 
 /* Begin PBXFileReference section */
 		058A8D13D7C1ACB869749B7F /* Pods-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.release.xcconfig"; sourceTree = "<group>"; };
-		410529DD1F3D4F050075EDC2 /* peripheralList.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = peripheralList.html; sourceTree = "<group>"; };
-		410529DE1F3D4F050075EDC2 /* S3.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = S3.html; sourceTree = "<group>"; };
 		4110A5701F3C59A800EBA5F1 /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4110A5741F3C59A800EBA5F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4110A5761F3C59A800EBA5F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -31,6 +29,14 @@
 		4110A5821F3C59A800EBA5F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4110A5841F3C59A800EBA5F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		419323ED1F668F1600B124EB /* YDRegisterInteractiveHtmlMethods.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = YDRegisterInteractiveHtmlMethods.plist; path = ../../Product/YDBluetoothWebBridge/Source/Bundle/YDRegisterInteractiveHtmlMethods.plist; sourceTree = "<group>"; };
+		419323F21F6691F300B124EB /* peripheralList.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = peripheralList.html; sourceTree = "<group>"; };
+		419323F31F6691F300B124EB /* S3.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = S3.html; sourceTree = "<group>"; };
+		419323F41F6691F300B124EB /* YDDatabaseOperation.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDDatabaseOperation.html; sourceTree = "<group>"; };
+		419323F51F6691F300B124EB /* YDHeartRateDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDHeartRateDetail.html; sourceTree = "<group>"; };
+		419323F61F6691F300B124EB /* YDPeripheralDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDPeripheralDetail.html; sourceTree = "<group>"; };
+		419323F71F6691F300B124EB /* YDPeripheralList.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDPeripheralList.html; sourceTree = "<group>"; };
+		419323F81F6691F300B124EB /* YDSetting.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDSetting.html; sourceTree = "<group>"; };
+		419323F91F6691F300B124EB /* YDSleepDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDSleepDetail.html; sourceTree = "<group>"; };
 		65989698C4A748C5179C8965 /* libPods-Examples.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Examples.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF812941E514574237AF4A79 /* Pods-Examples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,8 +74,7 @@
 		4110A5721F3C59A800EBA5F1 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				410529DD1F3D4F050075EDC2 /* peripheralList.html */,
-				410529DE1F3D4F050075EDC2 /* S3.html */,
+				419323F11F6691F300B124EB /* html */,
 				4110A5761F3C59A800EBA5F1 /* AppDelegate.h */,
 				4110A5771F3C59A800EBA5F1 /* AppDelegate.m */,
 				4110A5791F3C59A800EBA5F1 /* ViewController.h */,
@@ -90,6 +95,21 @@
 				4110A5741F3C59A800EBA5F1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		419323F11F6691F300B124EB /* html */ = {
+			isa = PBXGroup;
+			children = (
+				419323F21F6691F300B124EB /* peripheralList.html */,
+				419323F31F6691F300B124EB /* S3.html */,
+				419323F41F6691F300B124EB /* YDDatabaseOperation.html */,
+				419323F51F6691F300B124EB /* YDHeartRateDetail.html */,
+				419323F61F6691F300B124EB /* YDPeripheralDetail.html */,
+				419323F71F6691F300B124EB /* YDPeripheralList.html */,
+				419323F81F6691F300B124EB /* YDSetting.html */,
+				419323F91F6691F300B124EB /* YDSleepDetail.html */,
+			);
+			path = html;
 			sourceTree = "<group>";
 		};
 		A083B5B79107B24B976E746E /* Pods */ = {

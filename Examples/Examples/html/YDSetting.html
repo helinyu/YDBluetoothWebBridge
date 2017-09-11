@@ -1,0 +1,490 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" charset="utf-8">
+        <style type='text/css'>
+            html { font-family:Helvetica; color:#222; }
+            button { margin:0 3px 10px; font-size:12px; }
+            .logLine { border-bottom:1px solid #ccc; padding:4px 2px; font-family:courier; font-size:11px; }
+        </style>
+</head>
+
+<body>
+    <script>
+    window.onerror = function(err) {
+        log('window.onerror: ' + err)
+    }
+    
+// 固定的模块
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'https://__bridge_loaded__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+// 这里调用
+    setupWebViewJavascriptBridge(function(bridge) {
+        var uniqueId = 0
+        var choiceItem ;
+        var peripherals = new Array();
+
+        function log(message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = uniqueId;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function logEl(id,message, data) {
+            var log = document.getElementById('log')
+            var el = document.createElement('button')
+            el.className = 'logLine'
+            el.id = id;
+            el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+            if (log.children.length) { 
+                log.insertBefore(el, log.children[0]) 
+            }
+            else { 
+                log.appendChild(el)
+            }
+        }
+
+        function isNull(data) { 
+            return (data == "" || data == undefined || data == null) ? "暂无" : data; 
+        }
+
+        bridge.registerHandler('onTelComming', function(data, responseCallback) {
+            // var responseData = { 'name':'response from html to oc'+ data }
+            // peripherals.push('data');
+            // logEl(data.uuid,data.name + ';' + data.uuid);
+            // responseCallback(responseData);
+            var flag = data.flag;
+            if (flag == true) {
+              // for test /正式的应该是直接调用二进制写入
+              bridge.callHandler('onTelRemind',{},function(responseData) {
+
+              });
+            }
+            else{
+              log('处理不是来电的情况');
+            }
+
+        }); 
+
+        var quitConnectBtn = document.getElementById("quitConnectedId");
+        quitConnectBtn.onclick = function(e) {
+            bridge.callHandler('quitConnectClick',{},function(response) {
+                log('has quit connect');
+            });
+        } 
+
+		var lookforAlarmBtn = document.getElementById("goBackId");
+        lookforAlarmBtn.onclick = function (){
+       		var datas = {'toLink':'YDPeripheralDetail.html'};
+            bridge.callHandler('onLoadHtmlByLink', datas, function(response) {
+                log('JS got response', response)
+            });                     
+        }              	
+
+    	var lookforAlarmBtn = document.getElementById("alarmId");
+        lookforAlarmBtn.onclick = function (e){
+            alert('点击了寻找手环按钮');
+            var dataBytes = '36 0A 00 00 00 00 00 00 00 00 00 00 00 00 00 40';
+            var datas = {'value':dataBytes};
+            bridge.callHandler('onWriteDatasClickByDictionay', datas, function(response) {
+                log('JS got response', response)
+            });                     
+      };
+
+      var RestoreFactorySettingsBtn = document.getElementById('RestoreFactorySettingsId');
+        RestoreFactorySettingsBtn.onclick = function(e) {
+            // 上传数据包 0b 04 
+            alert('恢复厂家设置');
+            var requestSyncDatas = "12 00 00 00 00 00 00 00 00 00 00 00 00 00 00 12";
+            var datas = {'value':requestSyncDatas};
+            bridge.callHandler('onWriteDatasClickByDictionay', datas, function(response) {
+                log('JS got response', response)
+            });       
+      };
+// 下面的有待测试
+
+// 设置消息通知
+        var phoneBtn = document.getElementById('iphoneId'); 
+        phoneBtn.onclick = function(e) {
+
+            var alarmPhone = {};
+            bridge.callHandler('onSetPhoneCallOnClick', alarmPhone, function(response) {
+                log("js gor from oc & set the alarm phone");
+            });            
+
+            // e.preventDefault();
+            var phoneByteString = "01 01 01";
+            var header = 0x85;
+            alert('85 01 01 01');
+            var phoneRequestParams = {'value':phoneByteString, 'header':header};
+            bridge.callHandler('onWriteDatasWithHeader', phoneRequestParams ,function(response) {
+                log('js got from oc response',response);
+            });
+
+            alert('85 02 02');
+            var msgByteString = "02 02";
+            var header = 0x85;
+            var msgRequestParams = {'value':msgByteString, 'header':header};
+            bridge.callHandler("onWriteDatasWithHeader", msgRequestParams ,function(response) {
+
+            });
+        }  
+
+        var cancelShockNoABtn = document.getElementById('cancelShockNoAId');
+        cancelShockNoABtn.onclick = function(e) {
+            alert('点击了来电未接受取消震动');
+            var header = 0x85;
+            dataByteString = "01 02 01";
+            var requestParams = {'value':dataByteString,'header':header};
+            bridge.callHandler("onWriteDatasWithHeader", requestParams ,function(response) {
+
+            });    
+        }
+
+        var cancelShockHasABtn = document.getElementById('cancelShockHasAId');
+        cancelShockHasABtn.onclick = function(e) {
+              // Byte header = (Byte) 0x85;
+            // Byte data[] = {0x01, 0X08, 0X01};
+            alert('点击了来电接受取消震动');
+            var dataByteString = "01 08 01";
+            var header  = 0x85;
+            var requestParams = {'value':dataByteString,'header':header};
+            bridge.callHandler("onWriteDatasWithHeader", requestParams ,function(response) {
+
+            });    
+        };
+
+        var testphoneBtn = document.getElementById('testphoneId');
+            testphoneBtn.onclick = function(e) {
+              // Byte header = (Byte) 0x85;
+            // Byte data[] = {0x01, 0X08, 0X01};
+            alert('testphoneBtn');
+         
+            var requestParams = {};
+            bridge.callHandler("testAlarmPhone", requestParams ,function(response) {
+
+            });    
+        };
+
+        var phoneContentBtn = document.getElementById('iphoneContentId');
+            phoneContentBtn.onclick = function(e) {
+            var requestParams = {};
+            bridge.callHandler('onWriteDatasWithHeader',requestParams,function(response) {
+
+            });          
+        };
+
+      //   // 0x 81 可以获取到数据，这个是在后面的数据里面 。 （读取应该需要灵活性，应该是需要进行读取的）
+        //  闹钟的读取内容
+        var alarmClockBtn = document.getElementById('alarmClockId');
+        alarmClockBtn.onclick = function(e) {
+            var requestParams = {};
+            bridge.callHander('onClockClick',function(responseData) {
+
+            });
+        }
+
+      // //   //不同历史请求
+      //   var requestSyncBtn = document.getElementById('requestSyncId');
+      //   requestSyncBtn.onclick = function(e) {
+      //       var requestSyncDatas = "09 01";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }
+
+      //   var syncFailureBtn = document.getElementById('syncFailureId');
+      //   syncFailureBtn.onclick = function(e) {
+      //       var syncFailureDatas = "09 02 00";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }        
+
+      //  var syncSuccessBtn = document.getElementById('syncSuccessId');
+      //   syncSuccessBtn.onclick = function(e) {
+      //       var requestSyncDatas = "09 02 01";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }       
+
+      //  var syncNoneDatasBtn = document.getElementById('syncNoneDatasId');
+      //   syncNoneDatasBtn.onclick = function(e) {
+      //       var requestSyncDatas = "09 80 00 00";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }  
+         
+      //  var syncNoneDatasBtn = document.getElementById('syncNoneDatasId');
+      //   syncNoneDatasBtn.onclick = function(e) {
+      //       var requestSyncDatas = "09 80 00 00";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }  
+
+      //   var syncTimeBtn = document.getElementById('syncTimeId');
+      //   syncTimeBtn.onclick = function(e) {
+      //       // 设置时间
+      //       var requestSyncDatas = "09 81 00 01 02 03 04 05 06 07 08";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };  
+
+      //   var synUploadBtn = document.getElementById('synUploadId');
+      //   synUploadBtn.onclick = function(e) {
+      //       // 上传数据包
+      //       var requestSyncDatas = "09 81 00 01 02 03 04 05 06 07 08 09";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }; 
+
+      //   var syncEndBtn document.getElementById('syncEndId');
+      //   syncEndBtn.onclick = function(e) {
+      //       // 上传数据包
+      //       var requestSyncDatas = "09 83 11 11";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }; 
+        
+      // //   // 个人信息
+      //   var personInfoBtn document.getElementById('personInfoId');
+      //   personInfoBtn.onclick = function(e) {
+      //       // 上传数据包 0b 01 7个数据字节
+      //       var requestSyncDatas = "0B  01 00 01 02 03 04 05 06";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }; 
+
+      //   var nameBtn = document.getElementById('nameId');
+      //   nameBtn.onclick = function(e) {
+      //       // 上传数据包 0b 01 1~12个数据字节
+      //       var requestSyncDatas = "0B  01 00 01 02 03 04 05 06";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   }; 
+       
+      //   var languageBtn = document.getElementById('languageId');
+      //   nameBtn.onclick = function(e) {
+      //       // 上传数据包 0b 02 1个数据字节 （00 英语； 01 中文）
+      //       var requestSyncDatas = "0B  01 01";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
+
+       
+      //   var personInfoBtn = document.getElementById('personInfoId');
+      //   personInfoBtn.onclick = function(e) {
+      //       var requestSyncDatas = "0B 05";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
+
+      //   var setNameBtn = document.getElementById('setNameId');
+      //   setNameBtn.onclick = function(e) {
+      //       var requestSyncDatas = "0B 06";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
+
+      //   var readPersonInfoBtn= document.getElementById('readPersonInfoId');
+      //   readPersonInfoBtn.onclick = function(e) {
+      //       // 上传数据包 0b 04 
+      //       var requestSyncDatas = "0B 81";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
+
+      //  var readBlePersonBTn= document.getElementById('readBlePersonName');
+      //   readBlePersonBTn.onclick = function(e) {
+      //       // 上传数据包 0b 04 
+      //       var requestSyncDatas = "0B 82";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
+// 
+      // var readBleLanguageBtn= document.getElementById('readBleLanguage');
+      //   readBleLanguageBtn.onclick = function(e) {
+      //       // 上传数据包 0b 04 
+      //       var requestSyncDatas = "0B 83";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
+
+      //   var bleToMacAddressBtn = document.getElementById('bleToMacAddressId');
+      //   readBleLanguageBtn.onclick = function(e) {
+      //       var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });
+      //   };
+
+      //   var isNotBoundBtn = document.getElementById('isNotSupportBoundId');
+      //   isNotBoundBtn.onclick = function(e) {
+      //       var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+      //       bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+      //       });    
+      //   };
+// 
+        // var isBoundBtn = document.getElementById('isNotSupportBoundId');
+        // isBoundBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+
+        //     });    
+        // };
+
+        // var appreadBleDeviceBtn = document.getElementById('appreadBleDeviceID');
+        // appreadBleDeviceBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
+
+        // var bleUploadVersionInfoBtn = document.getElementById('bleUploadVersionInfoId');
+        // bleUploadVersionInfoBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
+
+        // var bleUploadProductInfoBtn = document.getElementById('bleUploadProductInfoId');
+        // bleUploadProductInfoBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
+
+        // var blueUploadSerialNumberBtn = document.getElementById('blueUploadSerialNumber');
+        // blueUploadSerialNumberBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
+
+        // var setBatteryBtn = document.getElementById('setBatteryId');
+        // setBatteryBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };
+        
+        // var bleUploadBatteryBtn = document.getElementById('bleUploadBatteryId');
+        // bleUploadBatteryBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };         
+// 
+        // var firmwareUpdateBtn = document.getElementById('firmwareUpdateId');
+        // firmwareUpdateBtn.onclick = function(e) {
+        //     var requestSyncDatas = "01 a1 a2 a3 a4 a5 a6";
+        //     bridge.callHander('onWriteDatasClickByDictionay', requestSyncDatas, function(response){
+        //     });    
+        // };   
+
+     });
+
+    </script>
+
+       <button id="goBackId">返回上一页</button>
+       <button id="quitConnectedId">断开连接</button>
+
+       <br/><br/>
+       <button id="alarmId">寻找我的手环</button>
+       <br/>
+
+       <br/>
+       <button id="RestoreFactorySettingsId"> 恢复厂家设置</button>
+       <br/>
+
+      <hr/>
+        <label>进入这个页面之后才可以进行监听到手机来电<label>
+      <hr/>
+
+       下面的来电提示应该是需要设备绑定 <这个在里面已经设置>，取消这个我们的app似乎没有实现
+       <button id="iphoneId">设置来电提示</button>
+       <button id="cancelShockNoAId">来电未接取消震动</button>
+       <button id="cancelShockHasAId">来电已接取消震动</button>
+       <br/>
+       <button id="testphoneId"> 测试手机来电按钮</button>
+
+       <br/>
+       <button id="iphoneContentId">设置来电提醒具体内容</button>
+       <br/>
+       <hr/>
+           上面设置的内容还是有区别的
+       <hr/>
+
+       <button id="alarmClockId">设置闹钟</button>
+
+       <hr/>
+
+       设置历史数据同步计步、睡眠
+       <hr/>
+       <button id="requestSyncId">发起同步请求</button>
+       <button id="syncFailureId">同步失败告诉请求</button>
+       <button id="syncSuccessId">不同成功告诉请求</button>
+       <button id="syncNoneDatasId">ble 没有历史数据同步</button>
+       <button id="syncTimeId">日期时间数据上传</button>
+       <button id="synUploadId"> 上传数据包</button>
+       <button id="syncEndId">设备上传结束包</button>
+
+       <hr/>
+       个人信息系统环境设置
+       <hr/>
+       <button id="personInfoId">个人信息</button>
+       <button id="setNameId">设置用户姓名</button>
+       <button id="languageId">设置语言</button>
+       <button id="readPersonInfoId"> 读取ble个人信息</button>
+       <button id="readBlePersonName"> 读取ble设备用户姓名</button>
+       <button id="readBleLanguage"> 读取ble设备语言</button>
+       <button id=""> ble 上传个人信息</button>
+       <button id=""> ble 上传用户姓名</button>
+       <button id=""> ble 上传设备语言</button>
+
+       <hr/>
+       蓝牙连接相关设置
+       <hr/>
+       <button id="bleToMacAddressId">app 向ble发送手机mac地址</button>
+       <!-- 发送mac地址，应该是一个绑定过程 -->
+       <button id="isNotSupportBoundId">不支持bound</button>
+       <button id="isSupportBoundId">支持bound</button>
+
+       <hr/>
+       设备信息
+       <hr/>
+       <button id="appreadBleDeviceID">app 读取设备信息</button>
+       <button id="bleUploadVersionInfoId">设备上传版本消息</button>
+       <button id="bleUploadProductInfoId">设备上传厂家消息</button>
+       <button id="blueUploadSerialNumber">设备上传序列号</button>
+
+     <!--   <hr/>
+       电池电量
+       <hr/>
+       <button id="setBatteryId">app 向ble设置电池电量</button>
+       <button id="bleUploadBatteryId"> ble设备-上传电池状态，电池电量</button>
+ -->
+       <hr/>
+           固件升级
+       <hr/>
+       <button id="firmwareUpdateId">固件升级</button>
+       <hr/>
+
+    </body>
+</html>
+

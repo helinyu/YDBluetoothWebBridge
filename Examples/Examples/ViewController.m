@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import <YDBluetoothWebBridge/YDBridgeWebViewController.h>
-#import <YDBluetoothWebBridge/YDConstants.h>
 
 @interface ViewController ()
 
@@ -20,33 +19,27 @@
     [super viewDidLoad];
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn setTitle:@"蓝牙测试" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(toThirdPartVC:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitle:@"网页接入" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(onTestClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
-    btn.frame = CGRectMake(100, 100, 100, 30);
+    btn.frame = CGRectMake(100, 100, 100, 100);
+    
 }
 
-- (void)toThirdPartVC:(id)sender {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"YDPeripheralList.html" ofType:nil];
-    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
-    vc.urlString = htmlString; //链接 (较好是网上链接测试替代本地链接)
-    vc.type = YDWebViewTypeBluetooth; // 网页蓝牙
-    vc.bluetoothBusinessType = 0;// 默认为0 就好
+- (void)onTestClicked {
+//    YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
+//    vc.urlString = @"http://192.168.11.127:8000/bluetoothhtml/YDPeripheralList.html";// 网页所在的地址
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"YDPeripheralList.html" ofType:nil];
+//    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    vc.urlString = htmlString;
+//    vc.type = YDWebViewTypeBluetooth; // 表示蓝牙的页面
+//    vc.bluetoothBusinessType = 0;
+    YDBridgeWebViewController *vc = [[YDBridgeWebViewController alloc] initWithUrl:@"http://192.168.11.127:8000/bluetoothhtml/YDPeripheralList.html" andType:YDWebViewTypeOuter];
     [self.navigationController pushViewController:vc animated:YES];
-}
-
-//for test
-- (void)onLoadHtmlNotify:(NSNotification *)noti {
-    NSString *urlString = noti.object;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:urlString ofType:nil];
-    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:YDNtfLoadHtml object:htmlString];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
 }
 
 

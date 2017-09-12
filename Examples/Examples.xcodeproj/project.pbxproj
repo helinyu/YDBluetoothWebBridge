@@ -13,14 +13,6 @@
 		4110A57E1F3C59A800EBA5F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4110A57C1F3C59A800EBA5F1 /* Main.storyboard */; };
 		4110A5801F3C59A800EBA5F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4110A57F1F3C59A800EBA5F1 /* Assets.xcassets */; };
 		4110A5831F3C59A800EBA5F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4110A5811F3C59A800EBA5F1 /* LaunchScreen.storyboard */; };
-		41B51C141F66804600EABD9F /* peripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 41B51C0C1F66804600EABD9F /* peripheralList.html */; };
-		41B51C151F66804600EABD9F /* S3.html in Resources */ = {isa = PBXBuildFile; fileRef = 41B51C0D1F66804600EABD9F /* S3.html */; };
-		41B51C161F66804600EABD9F /* YDDatabaseOperation.html in Resources */ = {isa = PBXBuildFile; fileRef = 41B51C0E1F66804600EABD9F /* YDDatabaseOperation.html */; };
-		41B51C171F66804600EABD9F /* YDHeartRateDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 41B51C0F1F66804600EABD9F /* YDHeartRateDetail.html */; };
-		41B51C181F66804600EABD9F /* YDPeripheralDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 41B51C101F66804600EABD9F /* YDPeripheralDetail.html */; };
-		41B51C191F66804600EABD9F /* YDPeripheralList.html in Resources */ = {isa = PBXBuildFile; fileRef = 41B51C111F66804600EABD9F /* YDPeripheralList.html */; };
-		41B51C1A1F66804600EABD9F /* YDSetting.html in Resources */ = {isa = PBXBuildFile; fileRef = 41B51C121F66804600EABD9F /* YDSetting.html */; };
-		41B51C1B1F66804600EABD9F /* YDSleepDetail.html in Resources */ = {isa = PBXBuildFile; fileRef = 41B51C131F66804600EABD9F /* YDSleepDetail.html */; };
 		E115D92FB96E4E02199557E5 /* libPods-Examples.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65989698C4A748C5179C8965 /* libPods-Examples.a */; };
 /* End PBXBuildFile section */
 
@@ -36,14 +28,15 @@
 		4110A57F1F3C59A800EBA5F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4110A5821F3C59A800EBA5F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4110A5841F3C59A800EBA5F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		41B51C0C1F66804600EABD9F /* peripheralList.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = peripheralList.html; sourceTree = "<group>"; };
-		41B51C0D1F66804600EABD9F /* S3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = S3.html; sourceTree = "<group>"; };
-		41B51C0E1F66804600EABD9F /* YDDatabaseOperation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDDatabaseOperation.html; sourceTree = "<group>"; };
-		41B51C0F1F66804600EABD9F /* YDHeartRateDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDHeartRateDetail.html; sourceTree = "<group>"; };
-		41B51C101F66804600EABD9F /* YDPeripheralDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDPeripheralDetail.html; sourceTree = "<group>"; };
-		41B51C111F66804600EABD9F /* YDPeripheralList.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDPeripheralList.html; sourceTree = "<group>"; };
-		41B51C121F66804600EABD9F /* YDSetting.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDSetting.html; sourceTree = "<group>"; };
-		41B51C131F66804600EABD9F /* YDSleepDetail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = YDSleepDetail.html; sourceTree = "<group>"; };
+		419323ED1F668F1600B124EB /* YDRegisterInteractiveHtmlMethods.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = YDRegisterInteractiveHtmlMethods.plist; path = ../../Product/YDBluetoothWebBridge/Source/Bundle/YDRegisterInteractiveHtmlMethods.plist; sourceTree = "<group>"; };
+		419323F21F6691F300B124EB /* peripheralList.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = peripheralList.html; sourceTree = "<group>"; };
+		419323F31F6691F300B124EB /* S3.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = S3.html; sourceTree = "<group>"; };
+		419323F41F6691F300B124EB /* YDDatabaseOperation.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDDatabaseOperation.html; sourceTree = "<group>"; };
+		419323F51F6691F300B124EB /* YDHeartRateDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDHeartRateDetail.html; sourceTree = "<group>"; };
+		419323F61F6691F300B124EB /* YDPeripheralDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDPeripheralDetail.html; sourceTree = "<group>"; };
+		419323F71F6691F300B124EB /* YDPeripheralList.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDPeripheralList.html; sourceTree = "<group>"; };
+		419323F81F6691F300B124EB /* YDSetting.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDSetting.html; sourceTree = "<group>"; };
+		419323F91F6691F300B124EB /* YDSleepDetail.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = YDSleepDetail.html; sourceTree = "<group>"; };
 		65989698C4A748C5179C8965 /* libPods-Examples.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Examples.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF812941E514574237AF4A79 /* Pods-Examples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Examples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Examples/Pods-Examples.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,7 +74,7 @@
 		4110A5721F3C59A800EBA5F1 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				41B51C0B1F66804600EABD9F /* html */,
+				419323F11F6691F300B124EB /* html */,
 				4110A5761F3C59A800EBA5F1 /* AppDelegate.h */,
 				4110A5771F3C59A800EBA5F1 /* AppDelegate.m */,
 				4110A5791F3C59A800EBA5F1 /* ViewController.h */,
@@ -98,22 +91,23 @@
 		4110A5731F3C59A800EBA5F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				419323ED1F668F1600B124EB /* YDRegisterInteractiveHtmlMethods.plist */,
 				4110A5741F3C59A800EBA5F1 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		41B51C0B1F66804600EABD9F /* html */ = {
+		419323F11F6691F300B124EB /* html */ = {
 			isa = PBXGroup;
 			children = (
-				41B51C0C1F66804600EABD9F /* peripheralList.html */,
-				41B51C0D1F66804600EABD9F /* S3.html */,
-				41B51C0E1F66804600EABD9F /* YDDatabaseOperation.html */,
-				41B51C0F1F66804600EABD9F /* YDHeartRateDetail.html */,
-				41B51C101F66804600EABD9F /* YDPeripheralDetail.html */,
-				41B51C111F66804600EABD9F /* YDPeripheralList.html */,
-				41B51C121F66804600EABD9F /* YDSetting.html */,
-				41B51C131F66804600EABD9F /* YDSleepDetail.html */,
+				419323F21F6691F300B124EB /* peripheralList.html */,
+				419323F31F6691F300B124EB /* S3.html */,
+				419323F41F6691F300B124EB /* YDDatabaseOperation.html */,
+				419323F51F6691F300B124EB /* YDHeartRateDetail.html */,
+				419323F61F6691F300B124EB /* YDPeripheralDetail.html */,
+				419323F71F6691F300B124EB /* YDPeripheralList.html */,
+				419323F81F6691F300B124EB /* YDSetting.html */,
+				419323F91F6691F300B124EB /* YDSleepDetail.html */,
 			);
 			path = html;
 			sourceTree = "<group>";
@@ -197,16 +191,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41B51C171F66804600EABD9F /* YDHeartRateDetail.html in Resources */,
 				4110A5831F3C59A800EBA5F1 /* LaunchScreen.storyboard in Resources */,
-				41B51C191F66804600EABD9F /* YDPeripheralList.html in Resources */,
 				4110A5801F3C59A800EBA5F1 /* Assets.xcassets in Resources */,
-				41B51C1B1F66804600EABD9F /* YDSleepDetail.html in Resources */,
-				41B51C141F66804600EABD9F /* peripheralList.html in Resources */,
-				41B51C151F66804600EABD9F /* S3.html in Resources */,
-				41B51C1A1F66804600EABD9F /* YDSetting.html in Resources */,
-				41B51C161F66804600EABD9F /* YDDatabaseOperation.html in Resources */,
-				41B51C181F66804600EABD9F /* YDPeripheralDetail.html in Resources */,
 				4110A57E1F3C59A800EBA5F1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -38,16 +38,6 @@
 		398A5C11EFB816892FD5E18AD24F03D4 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = D1B8D8A64604D1AB7F169D7F44D010FF /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E8E6916C563B9CB12AA417275FC6EB3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1779F5891FDE0A2D5BD30CCE06CD2A /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		3FECFDE87253334FA356C4898AA1478D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9786DD7D9379236E043762D311B7803 /* Foundation.framework */; };
-		41802D071F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
-		41802D081F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
-		41802D091F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
-		41802D0A1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
-		41802D0B1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
-		41802D0C1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
-		41802D0D1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
-		41802D0E1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
-		41802D0F1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
-		41802D101F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */; };
 		4555765FD8034B4B9AA0B7356074D523 /* NJKWebViewProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FE904DA66CBD174F77C3DB9DBC709C1 /* NJKWebViewProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46D931760B10C6FBE8B29D06AAC94228 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B64F7FA01D22D0466DC229DF4410217 /* MJRefreshBackStateFooter.m */; };
 		490CA524521F7D444EA58FA915D7E99C /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 49CC9335A510F0AD1FE6048FED07F4C2 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -281,7 +271,7 @@
 		3FC2148F6AB502FAC05EB3D58C6EDC65 /* WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WebViewJavascriptBridge_JS.h; path = WebViewJavascriptBridge/WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
 		3FE904DA66CBD174F77C3DB9DBC709C1 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgressView.h; path = NJKWebViewProgress/NJKWebViewProgressView.h; sourceTree = "<group>"; };
 		40FBF4A7577ED617D4D5F4D76E80AEE9 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
-		41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDBluetoothWebBridge.framework; sourceTree = "<group>"; };
+		419323FB1F6693BF00B124EB /* YDBluetoothWebBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YDBluetoothWebBridge.framework; sourceTree = "<group>"; };
 		42300EA17F787EE913DC0A32D65854E9 /* UIView+MJExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MJExtension.h"; path = "MJRefresh/UIView+MJExtension.h"; sourceTree = "<group>"; };
 		442A95BAD0F3EDB567FDDFB0876E2772 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4509DAF370F1671D4B9D470B8B4CE6D8 /* Pods-Examples-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Examples-dummy.m"; sourceTree = "<group>"; };
@@ -414,7 +404,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D081F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				3FECFDE87253334FA356C4898AA1478D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +412,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D0B1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				CB55C61C2A831D11FE7DDFC4B4B2E0DD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,7 +420,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D0C1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				4CA89BFAD2DBD405FCFF8663AC961B84 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,7 +428,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D0D1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				04E997ACC65633874CA94CBD8698D260 /* Foundation.framework in Frameworks */,
 				98B81C978182E3792C45000B9BE32880 /* SystemConfiguration.framework in Frameworks */,
 			);
@@ -451,7 +437,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D091F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				F0B56A7D38A399A2F67F9920C9526A66 /* Foundation.framework in Frameworks */,
 				6209E20926D79222E59F58B962BFAA1E /* UIKit.framework in Frameworks */,
 			);
@@ -461,7 +446,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D071F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				24EF7168E0DB3E8F25C4365B8E71BF05 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,7 +454,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D0F1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				5C356625C23E5E5056AA71683443FB01 /* Foundation.framework in Frameworks */,
 				F456CA802855CA00E24296CD272E6A00 /* UIKit.framework in Frameworks */,
 				2D9C418EED4AA371CF2BE3453EA75815 /* WebKit.framework in Frameworks */,
@@ -481,7 +464,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D0A1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				F71530448B7A282746853F4718DCA267 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +472,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D101F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				FC88DDACC76F43B3D65004F841AAF7AC /* CoreFoundation.framework in Frameworks */,
 				17BCB2916BA4205DF1A8076CEAD9DE0F /* Foundation.framework in Frameworks */,
 			);
@@ -500,7 +481,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41802D0E1F668D920084C9D9 /* YDBluetoothWebBridge.framework in Frameworks */,
 				59F93B4676672483892DFEFC76AD605A /* Foundation.framework in Frameworks */,
 				D97EE68FA293DFEB351CF53AFF3CDA4C /* QuartzCore.framework in Frameworks */,
 			);
@@ -537,7 +517,7 @@
 		0B9BB87177C9D2ECFCDDDB35C27BE2E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				41802D061F668D920084C9D9 /* YDBluetoothWebBridge.framework */,
+				419323FB1F6693BF00B124EB /* YDBluetoothWebBridge.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1516,10 +1496,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = staticlib;
@@ -1543,10 +1519,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1570,10 +1542,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Reachability/Reachability-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1597,10 +1565,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -1624,10 +1588,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1651,10 +1611,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1678,10 +1634,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/WebViewJavascriptBridge/WebViewJavascriptBridge-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1749,10 +1701,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1776,10 +1724,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/BabyBluetooth/BabyBluetooth-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1803,10 +1747,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/WebViewJavascriptBridge/WebViewJavascriptBridge-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1830,10 +1770,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/NJKWebViewProgress/NJKWebViewProgress-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -1905,10 +1841,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1932,10 +1864,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -1959,10 +1887,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1986,10 +1910,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MACH_O_TYPE = staticlib;
@@ -2013,10 +1933,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/Reachability/Reachability-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -2040,10 +1956,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -2067,10 +1979,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/NJKWebViewProgress/NJKWebViewProgress-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
@@ -2094,10 +2002,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -2121,10 +2025,6 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YDBluetoothWebBridge",
-				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/BabyBluetooth/BabyBluetooth-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

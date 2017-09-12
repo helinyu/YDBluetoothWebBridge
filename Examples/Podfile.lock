@@ -15,7 +15,7 @@ PODS:
   - Reachability (3.2)
   - SVProgressHUD (2.1.2)
   - WebViewJavascriptBridge (6.0.2)
-  - YDBluetoothWebBridge (0.2.5):
+  - YDBluetoothWebBridge (0.1.7):
     - BabyBluetooth (~> 0.7.0)
     - HardwareDatasStorage (~> 0.0.1)
     - Masonry (~> 1.0.2)
@@ -28,7 +28,7 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - YDBluetoothWebBridge (~> 0.2.5)
+  - YDBluetoothWebBridge (~> 0.1.7)
 
 SPEC CHECKSUMS:
   BabyBluetooth: d50758aecf24d4a0ab9271d69f0f116d6bee51c9
@@ -40,9 +40,9 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   WebViewJavascriptBridge: 791ee0e26d1bf15efe5fb7fb9666a71a19b89d77
-  YDBluetoothWebBridge: bd65a20af0a23ab991b96da8c77a40e35bd2f2c9
+  YDBluetoothWebBridge: 8fbe5e4bc358a53f99cdafad4f553d011a5bcbcb
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 54ac5617cd761e2fe6eaa49cf64eeb48a28de402
+PODFILE CHECKSUM: e9e0ad520fcfbcde9d4194f1fb2332be5ed3a2ec
 
 COCOAPODS: 1.2.1

@@ -27,10 +27,14 @@
 }
 
 - (void)onTestClicked {
-    YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
-    vc.urlString = @"http://192.168.11.127:8000/bluetoothhtml/YDPeripheralList.html";// 网页所在的地址
-    vc.type = YDWebViewTypeBluetooth; // 表示蓝牙的页面
-    vc.bluetoothBusinessType = 0;
+//    YDBridgeWebViewController *vc = [YDBridgeWebViewController new];
+//    vc.urlString = @"http://192.168.11.127:8000/bluetoothhtml/YDPeripheralList.html";// 网页所在的地址
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"YDPeripheralList.html" ofType:nil];
+//    NSString *htmlString = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    vc.urlString = htmlString;
+//    vc.type = YDWebViewTypeBluetooth; // 表示蓝牙的页面
+//    vc.bluetoothBusinessType = 0;
+    YDBridgeWebViewController *vc = [[YDBridgeWebViewController alloc] initWithUrl:@"http://192.168.11.127:8000/bluetoothhtml/YDPeripheralList.html" andType:YDWebViewTypeOuter];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

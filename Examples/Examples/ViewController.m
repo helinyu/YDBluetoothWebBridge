@@ -34,7 +34,10 @@
 //    vc.urlString = htmlString;
 //    vc.type = YDWebViewTypeBluetooth; // 表示蓝牙的页面
 //    vc.bluetoothBusinessType = 0;
+    
+    
     YDBridgeWebViewController *vc = [[YDBridgeWebViewController alloc] initWithUrl:@"http://192.168.11.127:8000/bluetoothhtml/YDPeripheralList.html" andType:YDWebViewTypeOuter];
+//    设置对应的链接即可
     [self.navigationController pushViewController:vc animated:YES];
 }
 
